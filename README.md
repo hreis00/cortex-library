@@ -14,7 +14,7 @@ cortex-library/
     ├── instructions/                          ← always-on coding rules
     │   └── global-standards.instructions.md
     ├── prompts/                               ← reusable parameterized prompts
-    │   └── pr-description.prompt.md
+    │   └── pr.prompt.md
     └── skills/                               ← on-demand domain knowledge
         └── git-conventional-commits/
             └── SKILL.md
@@ -36,9 +36,9 @@ cortex-library/
 
 ### Prompts
 
-| File                                                                                   | Purpose                                                                                                      |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| [`.github/prompts/pr-description.prompt.md`](.github/prompts/pr-description.prompt.md) | Generates a structured PR description (What/Why/How/Testing/Breaking Changes) from a change summary or diff. |
+| File                                                           | Purpose                                                                                                                                                       |
+| -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`.github/prompts/pr.prompt.md`](.github/prompts/pr.prompt.md) | Full PR workflow: validates commits against Conventional Commits, pushes the branch, generates a structured title and description, and opens the PR via `gh`. |
 
 ### Skills
 
