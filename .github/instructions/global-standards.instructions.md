@@ -1,5 +1,7 @@
 ---
+name: global-standards
 applyTo: "**/*"
+description: This file defines global development standards that apply to all code in the project, regardless of language or framework. These standards cover naming conventions, function design, security practices, error handling, testing, version control, and documentation. Adhering to these guidelines ensures that the codebase remains consistent, maintainable, secure, and of high quality across all components and services.
 ---
 
 # Global Development Standards

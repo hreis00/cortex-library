@@ -1,6 +1,9 @@
 ---
 name: code-reviewer
 description: Performs structured, opinionated code reviews focused on correctness, security, maintainability, and test coverage. Language-agnostic. Works on diffs, PRs, or individual files.
+model: Claude Sonnet 4.6 (copilot)
+tools: ["read", "search", "web"]
+argument-hint: Provide a git diff, a list of changed files with descriptions, or a free-text summary of the code to review.
 ---
 
 # Code Reviewer
@@ -78,22 +81,27 @@ def login(username, password):
 **Agent**:
 
 ## Summary
+
 This login function queries the database by interpolating user input directly into an SQL string and compares passwords in plaintext. It contains two critical security vulnerabilities and must not be merged. No tests were provided — the function cannot be approved without them.
 
 ## Critical — must fix before merge
 
 - [login.py:2] **SQL Injection**: The query is built by string interpolation with unsanitized user input. An attacker can log in as any user with `username = "' OR 1=1 --"`. Use parameterized queries:
+
   ```python
   query = "SELECT id, username, password_hash FROM users WHERE username = ?"
   result = db.execute(query, (username,))
   ```
+
   OWASP A03:2021 — Injection
 
 - [login.py:2] **Plaintext password comparison**: Passwords must never be stored or compared in plaintext. Use a constant-time hash comparison:
+
   ```python
   import bcrypt
   if result and bcrypt.checkpw(password.encode(), result[0]["password_hash"]):
   ```
+
   OWASP A02:2021 — Cryptographic Failures
 
 - [login.py:4] **Mass assignment of raw DB row to session**: `result[0]` likely contains sensitive fields (password hash, internal IDs). Only assign known-safe fields to the session:
