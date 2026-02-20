@@ -2,7 +2,7 @@
 name: pr
 description: Runs the full pull request workflow — validates commits, pushes the branch, generates a structured PR title and description following Conventional Commits, and opens the PR via gh CLI.
 agent: agent
-model: Claude Sonnet 4.6 (copilot)
+model: [GPT-4.1 (copilot), Claude Sonnet 4.6 (copilot)]
 tools: ["execute", "read"]
 argument-hint: "Usage: /pr [<source-branch>] [to <target-branch>]. Defaults: source = current branch, target = main. Examples: /pr — /pr feat-my-feature to main — /pr feat-my-feature to develop"
 ---
