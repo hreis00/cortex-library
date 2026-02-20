@@ -8,6 +8,7 @@ tools:
     "read/readFile",
     "execute/runInTerminal",
     "execute/getTerminalOutput",
+    "github/*",
   ]
 argument-hint: "Describe the data question you want answered. Provide the GCP project ID and dataset name if known (e.g. 'Show me the top 10 users by event count in my-project.analytics')."
 ---
