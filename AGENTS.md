@@ -20,22 +20,23 @@ Every artifact in this library must be:
 cortex-library/
 ├── AGENTS.md                                  ← you are here
 ├── README.md                                  ← human-facing overview
-├── agents/                                    ← custom agent mode definitions
-│   └── code-reviewer.agent.md
-├── instructions/                              ← scoped coding rules (always-on)
-│   └── global-standards.instructions.md
-├── prompts/                                   ← parameterized, reusable prompts
-│   └── pr-description.prompt.md
-└── skills/                                    ← on-demand domain knowledge
-    └── git-conventional-commits/
-        └── SKILL.md
+└── .github/
+    ├── agents/                                ← custom agent mode definitions
+    │   └── code-reviewer.agent.md
+    ├── instructions/                          ← scoped coding rules (always-on)
+    │   └── global-standards.instructions.md
+    ├── prompts/                               ← parameterized, reusable prompts
+    │   └── pr-description.prompt.md
+    └── skills/                               ← on-demand domain knowledge
+        └── git-conventional-commits/
+            └── SKILL.md
 ```
 
 ---
 
 ## File Conventions
 
-### Agents — `agents/*.agent.md`
+### Agents — `.github/agents/*.agent.md`
 
 Custom agent modes that define a specific persona, toolset, and behavior.
 
@@ -47,7 +48,7 @@ Custom agent modes that define a specific persona, toolset, and behavior.
 
 > Do **not** write instructions like "be helpful" or "be thorough". Write rules that constrain and direct specific behaviors.
 
-### Instructions — `instructions/*.instructions.md`
+### Instructions — `.github/instructions/*.instructions.md`
 
 Always-on rules that are injected into every interaction matching the `applyTo` glob.
 
@@ -57,7 +58,7 @@ Always-on rules that are injected into every interaction matching the `applyTo` 
 | Frontmatter | `applyTo` (string glob or array of globs)                                                    |
 | Body        | Actionable rules only — no suggestions, no template placeholders. Rules must be enforceable. |
 
-### Prompts — `prompts/*.prompt.md`
+### Prompts — `.github/prompts/*.prompt.md`
 
 Parameterized slash-command prompts for focused, repeatable tasks.
 
@@ -67,7 +68,7 @@ Parameterized slash-command prompts for focused, repeatable tasks.
 | Frontmatter | `name`, `description`, optionally `mode` and `tools`                                                              |
 | Body        | Actual prompt text (fully written), `## Variables` section defining each `{{placeholder}}`, concrete `## Example` |
 
-### Skills — `skills/<name>/SKILL.md`
+### Skills — `.github/skills/<name>/SKILL.md`
 
 On-demand domain knowledge packages, invoked explicitly by filename reference.
 
@@ -119,8 +120,8 @@ When an AI agent adds or modifies any file in this repository, it must enforce:
 
 ## Working in This Repo
 
-- Apply `instructions/global-standards.instructions.md` to all code and content edits.
-- Use `agents/code-reviewer.agent.md` when reviewing pull requests.
+- Apply `.github/instructions/global-standards.instructions.md` to all code and content edits.
+- Use `.github/agents/code-reviewer.agent.md` when reviewing pull requests.
 - Do **not** create boilerplate, template stubs, or "example" files. Write the real thing.
 - Do **not** modify `.git/` or any git internals.
 - Prefer editing existing files over creating new ones when expanding coverage of an existing topic.

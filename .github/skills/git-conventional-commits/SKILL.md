@@ -1,6 +1,7 @@
 ---
 name: git-conventional-commits
 description: Git workflow conventions covering commit message format, branch naming, and pull request practices. Based on the Conventional Commits specification. Applicable to any project using Git.
+argument-hint: Provide a specific question about git commit message formatting, branch naming, or workflow best practices. For example: "How should I format a commit message for a new feature?", "What branch name should I use for fixing a bug in the authentication module?", or "What is the recommended workflow for feature development and merging?"
 ---
 
 # Git: Conventional Commits & Workflow

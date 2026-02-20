@@ -2,7 +2,9 @@
 name: pr-description
 description: Generates a clear, structured pull request description from a summary of code changes. Follows GitHub PR best practices.
 agent: agent
-model: Claude Opus 4.6
+model: Claude Sonnet 4.6 (copilot)
+argument-hint: Provide a raw git diff, a git log summary, a list of changed files with descriptions, or a free-text summary of the implemented changes.
+tools: ["execute", "read", "search", "edit"]
 ---
 
 # Pull Request Description Generator

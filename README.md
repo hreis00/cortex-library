@@ -7,42 +7,44 @@ A curated collection of AI agents, instructions, prompts, and skills for consist
 ```
 cortex-library/
 ├── AGENTS.md                                  ← AI agent guide for this repo
-├── agents/                                    ← custom agent mode definitions
-│   └── code-reviewer.agent.md
-├── instructions/                              ← always-on coding rules
-│   └── global-standards.instructions.md
-├── prompts/                                   ← reusable parameterized prompts
-│   └── pr-description.prompt.md
-└── skills/                                    ← on-demand domain knowledge
-    └── git-conventional-commits/
-        └── SKILL.md
+├── README.md
+└── .github/
+    ├── agents/                                ← custom agent mode definitions
+    │   └── code-reviewer.agent.md
+    ├── instructions/                          ← always-on coding rules
+    │   └── global-standards.instructions.md
+    ├── prompts/                               ← reusable parameterized prompts
+    │   └── pr-description.prompt.md
+    └── skills/                               ← on-demand domain knowledge
+        └── git-conventional-commits/
+            └── SKILL.md
 ```
 
 ## Contents
 
 ### Agents
 
-| File | Purpose |
-|---|---|
-| [`agents/code-reviewer.agent.md`](agents/code-reviewer.agent.md) | Code review agent. Structured five-pass review covering correctness, security (OWASP), tests, maintainability, and design. Language-agnostic. |
+| File                                                                             | Purpose                                                                                                                                       |
+| -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`.github/agents/code-reviewer.agent.md`](.github/agents/code-reviewer.agent.md) | Code review agent. Structured five-pass review covering correctness, security (OWASP), tests, maintainability, and design. Language-agnostic. |
 
 ### Instructions
 
-| File | Scope | Purpose |
-|---|---|---|
-| [`instructions/global-standards.instructions.md`](instructions/global-standards.instructions.md) | All files | Universal rules for naming, functions, security, error handling, testing, version control, and documentation. |
+| File                                                                                                             | Scope     | Purpose                                                                                                       |
+| ---------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------- |
+| [`.github/instructions/global-standards.instructions.md`](.github/instructions/global-standards.instructions.md) | All files | Universal rules for naming, functions, security, error handling, testing, version control, and documentation. |
 
 ### Prompts
 
-| File | Purpose |
-|---|---|
-| [`prompts/pr-description.prompt.md`](prompts/pr-description.prompt.md) | Generates a structured PR description (What/Why/How/Testing/Breaking Changes) from a change summary or diff. |
+| File                                                                                   | Purpose                                                                                                      |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| [`.github/prompts/pr-description.prompt.md`](.github/prompts/pr-description.prompt.md) | Generates a structured PR description (What/Why/How/Testing/Breaking Changes) from a change summary or diff. |
 
 ### Skills
 
-| Skill | Purpose |
-|---|---|
-| [`skills/git-conventional-commits/SKILL.md`](skills/git-conventional-commits/SKILL.md) | Conventional Commits format, branch naming, feature branch workflow, squashing, reverting, and CI tooling. |
+| Skill                                                                                                  | Purpose                                                                                                    |
+| ------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------- |
+| [`.github/skills/git-conventional-commits/SKILL.md`](.github/skills/git-conventional-commits/SKILL.md) | Conventional Commits format, branch naming, feature branch workflow, squashing, reverting, and CI tooling. |
 
 ## Using These Files
 
@@ -53,12 +55,12 @@ Copy or symlink the files you need into `.github/` in your project:
 ```bash
 # Link all instructions to your project
 mkdir -p .github/instructions
-ln -s ~/path/to/cortex-library/instructions/global-standards.instructions.md \
+ln -s ~/path/to/cortex-library/.github/instructions/global-standards.instructions.md \
       .github/instructions/global-standards.instructions.md
 
 # Link a skill
 mkdir -p .github/skills/git-conventional-commits
-ln -s ~/path/to/cortex-library/skills/git-conventional-commits/SKILL.md \
+ln -s ~/path/to/cortex-library/.github/skills/git-conventional-commits/SKILL.md \
       .github/skills/git-conventional-commits/SKILL.md
 ```
 
@@ -68,7 +70,14 @@ ln -s ~/path/to/cortex-library/skills/git-conventional-commits/SKILL.md \
 git submodule add https://github.com/hreis00/cortex-library .github/cortex-library
 ```
 
-Then reference individual files from `.github/cortex-library/` using symlinks or direct paths.
+Then symlink individual files into the expected VS Code paths:
+
+```bash
+# Example: activate the global standards instruction
+mkdir -p .github/instructions
+ln -s .github/cortex-library/.github/instructions/global-standards.instructions.md \
+      .github/instructions/global-standards.instructions.md
+```
 
 ## Contributing
 
