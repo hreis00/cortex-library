@@ -10,13 +10,19 @@ cortex-library/
 ├── README.md
 └── .github/
     ├── agents/                                ← custom agent mode definitions
-    │   └── code-reviewer.agent.md
+    │   ├── code-reviewer.agent.md
+    │   └── bigquery-analyst.agent.md
     ├── instructions/                          ← always-on coding rules
-    │   └── global-standards.instructions.md
+    │   ├── global-standards.instructions.md
+    │   └── bigquery-sql.instructions.md
     ├── prompts/                               ← reusable parameterized prompts
-    │   └── pr.prompt.md
+    │   ├── pr.prompt.md
+    │   ├── bigquery-query.prompt.md
+    │   └── bigquery-explain.prompt.md
     └── skills/                               ← on-demand domain knowledge
-        └── git-conventional-commits/
+        ├── git-conventional-commits/
+        │   └── SKILL.md
+        └── gcp-bigquery/
             └── SKILL.md
 ```
 

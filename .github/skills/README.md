@@ -6,4 +6,5 @@ On-demand domain knowledge packages. Reference a skill by filename to load its k
 | ---------------------------------------------------------------- | -------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | [`git-conventional-commits/`](git-conventional-commits/SKILL.md) | `git-conventional-commits` | Commit message format (Conventional Commits), branch naming, PR workflow, squashing, reverting, and tooling. |
 
+| [`gcp-bigquery/`](gcp-bigquery/SKILL.md) | `gcp-bigquery` | BigQuery standard SQL, partitioning, clustering, slot-based pricing, INFORMATION_SCHEMA, query optimization, schema design, and production security practices. |
 See [`AGENTS.md`](../../AGENTS.md) for naming conventions and contribution guidelines.
